@@ -1,0 +1,136 @@
+<div class="row">
+        <div class="col-md-12"><hr></div>
+    </div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 text-center"><p>Welcome to the world!</p></div>
+    <div class="col-md-2"></div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 text-center">
+        <button title="Information Toggle" type="button" class="btn btn-primary" (click)="btnClick()" >Click for Information</button>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<hr>
+<ng-container *ngIf="bToggleInformation">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5 toggle">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form [formGroup]="infoForm" id="infoForm">
+                                <div class="row required"> 
+                                    <div class="col-md-4">
+                                    <label class="control-label text-dark" for="firstName">First Name:&nbsp;
+                                    </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input size="30" maxlength="30" title="first name" type="text" id="firstNameInput" formControlName="firstName" class="form-control"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="row required">
+                                    <div class="col-md-4">
+                                    <label class="control-label text-dark" for="lastName">Last Name:&nbsp;
+                                    </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input size="30" maxlength="30" title="last name" type="text" id="lastNameInput" formControlName="lastName" class="form-control"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="row required">
+                                    <div class="col-md-4">
+                                    <label class="control-label text-dark" for="address">Address:&nbsp;
+                                    </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input size="30" maxlength="30" title="address" type="text" id="addressInput" formControlName="address" class="form-control"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="row required">
+                                    <div class="col-md-4">
+                                    <label class="control-label text-dark" for="city">City:&nbsp;
+                                    </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input size="30" maxlength="30" title="city" type="text" id="cityInput" formControlName="city" class="form-control"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="row required">
+                                    <div class="col-md-4">
+                                    <label class="control-label text-dark" for="state">State:&nbsp;
+                                    </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input size="30" maxlength="30" title="state" type="text" id="stateInput" formControlName="state" class="form-control"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="row required">
+                                    <div class="col-md-4">
+                                    <label class="control-label text-dark" for="zip">Zip:&nbsp;
+                                    </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input size="30" maxlength="30" title="zip" type="text" id="zipInput" formControlName="zip" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="row required">
+                                    <div class="col-md-4 text-left">
+                                        <label class="control-label text-dark" for="email">Email:&nbsp;</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input size="30" maxlength="30" title="email" type="text" id="emailInput" formControlName="email" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button title="SOAP Request, disabled functionality until API created." type="button" id="saveContact" class="btn btn-primary" (click)="makeSOAPWebApiCall(false)" >Save Contact</button><br>
+                                    </div>
+                                    <div class="col-md-6" *ngIf="bIsSoap">
+                                        <p class="soapservice">SOAP Service not active!</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="soapservice">Object being sent: {{contactAdd}}</p><br>
+                                    </div>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-5 toggle">
+                <form [formGroup]="emailForm" id="emailForm">
+                    <div 
+                    <div class="row required">
+                        <div class="col-md-4">
+                        <label class="control-label text-dark" for="email">Email:&nbsp;&nbsp;
+                        </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input size="30" maxlength="30" title="email" type="text" id="emailInput" formControlName="email" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button title="REST API, disabled functionality until API created." type="button" id="saveContactRest" class="btn btn-primary" (click)="makeRESTWebApiCall(false)" >Get Contact</button><br>
+                            <div *ngIf="bIsREST"><p class="soapservice">REST API not active!</p></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="soapservice">Object being sent: {{contactGet}}</p><br>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+</ng-container>

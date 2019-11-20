@@ -1,0 +1,28 @@
+p{
+    font-size: x-large;
+}
+hr {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    border: 0;
+    border-top: 10px solid lightslategray;
+    /*border-top: 1px solid #FF931B;*/
+}
+.required  .control-label:after {
+    content:"*";
+    color: #cd2026;
+    font-size: 150%;
+  }
+
+.soapservice {
+    margin-top: 5px;
+    color: red; 
+    font-size: 12px;
+}
+
+.toggle{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid darkgray;
+}
