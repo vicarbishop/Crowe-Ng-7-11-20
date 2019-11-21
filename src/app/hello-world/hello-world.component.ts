@@ -59,6 +59,12 @@ export class HelloWorldComponent implements OnInit {
     this.bToggleInformation = !this.bToggleInformation;
   }
 
+  /////////////////////////////////////////////////////////////////////////////////////
+  // makeRESTWebApiCall
+  // HTTP GET API call for an example. This will call an 
+  // API on backend. The flexibility is using HTTP to call server which would have some
+  // kind of message hub/service to fetch the data
+  // Fetch the contact based on email and patch the form values with returned value.
   makeRESTWebApiCall(enable: boolean){
     console.log("Hellow World...in makeRESTWebApiCall");
     this.contactGet = JSON.stringify(this.emailForm.value);
@@ -67,6 +73,7 @@ export class HelloWorldComponent implements OnInit {
       let email = this.emailForm.get('email').value();
       this.webApiService.getContact(email).then(
         data => {
+            this.infoForm.patchValue(data);
             Swal.fire({
               title: 'Success',
               text: 'Contact fetched successfully.',

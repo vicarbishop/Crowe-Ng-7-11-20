@@ -9,12 +9,11 @@ import { HelloWorldComponent } from './hello-world/hello-world.component';
 @NgModule({
   declarations: [
     AppComponent,
-    FormsModule,
-    ReactiveFormsModule,
     HelloWorldComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     ReactiveFormsModule
   ],
